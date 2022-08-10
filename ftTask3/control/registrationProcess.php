@@ -1,10 +1,13 @@
 <?php
-    include("regesDB.php");
+    include("../model/databaseConnection.php");
     $data = "";
     $registrationError = "";
     $language = "";
 
     if(isset($_REQUEST["java"]) || isset($_REQUEST["php"]) || isset($_REQUEST["cpp"])){
+        if(isset($_REQUEST["java"]) && isset($_REQUEST["php"]) && isset($_REQUEST["cpp"])){
+            $language =  $_REQUEST["java"] . "," . $_REQUEST["php"] . "," . $_REQUEST["cpp"];
+        }
         if(isset($_REQUEST["java"]) && isset($_REQUEST["php"])){
             $language =  $_REQUEST["java"] . "," . $_REQUEST["php"];
         }

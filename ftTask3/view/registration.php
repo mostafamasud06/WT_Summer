@@ -1,5 +1,5 @@
 <?php
-    include("regControlDB.php");
+    include("../control/registrationProcess.php");
 ?>
 
 <!DOCTYPE html>
@@ -7,11 +7,11 @@
 
 <head>
     <title>Registration</title>
-    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <script src="../javaScript/registration.js"></script>
 </head>
 
 <body>
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="" method="POST" enctype="multipart/form-data" onsubmit="return checkValidation()">
         <h1>Registration Form</h1>
         <hr>
         <table>
@@ -19,63 +19,71 @@
                 <td>
                     <h3>First Name:</h3>
                 </td>
-                <td><input type="text" name="firstName" id=""></td>
+                <td><input type="text" name="firstName" id="firstName"></td>
+                <td><p id="firstnamedata"></p></td>
             </tr>
             <tr>
                 <td>
                     <h3>Last Name:</h3>
                 </td>
-                <td><input type="text" name="lastName" id=""></td>
+                <td><input type="text" name="lastName" id="lastName"></td>
+                <td><p id="lastnamedata"></p></td>
             </tr>
             <tr>
                 <td>
                     <h3>Age:</h3>
                 </td>
-                <td><input type="text" name="age" id=""></td>
+                <td><input type="text" name="age" id="age"></td>
+                <td><p id="agedata"></p></td>
             </tr>
             <tr>
                 <td>
                     <h3>Designation:</h3>
                 </td>
                 <td>
-                    <input type="radio" name="designation" id="" value="Jounior Programmer">
+                    <input type="radio" name="designation" id="JP" value="Jounior Programmer">
                     <label for="designation">Jounior Programmer</label>
-                    <input type="radio" name="designation" id="" value="Senior Programmer">
+                    <input type="radio" name="designation" id="SP" value="Senior Programmer">
                     <label for="designation">Senior Programmer</label>
-                    <input type="radio" name="designation" id="" value="Project Lead">
+                    <input type="radio" name="designation" id="PL" value="Project Lead">
                     <label for="designation">Project Lead</label>
                 </td>
+                <td><p id="designationData"></p></td>
             </tr>
             <tr>
                 <td>
                     <h3>Preferred Language:</h3>
                 </td>
                 <td>
-                    <input type="checkbox" name="java" id="" value="Java">
+                    <input type="checkbox" name="java" id="planguage" value="Java">
                     <label for="Java">Java</label>
-                    <input type="checkbox" name="php" id="" value="PHP">
+                    <input type="checkbox" name="php" id="planguage" value="PHP">
                     <label for="php">PHP</label>
-                    <input type="checkbox" name="cpp" id="" value="C++">
+                    <input type="checkbox" name="cpp" id="planguage" value="C++">
                     <label for="cpp">C++</label>
                 </td>
+                <td><p id="languageData"></p></td>
             </tr>
             <tr>
                 <td>
                     <h3>E-mail:</h3>
                 </td>
-                <td><input type="email" name="email" id=""></td>
+                <td><input type="text" name="email" id="email"></td>
+                <td><p id="emailData"></p></td>
             </tr>
             <tr>
                 <td>
                     <h3>Password:</h3>
                 </td>
-                <td><input type="password" name="password" id=""></td>
+                <td><input type="password" name="password" id="password"></td>
+                <td><p id="passwordData"></p></td>
             </tr>
             <tr>
                 <td>
                     <h3>Please choose a file</h3>
                 </td>
-                <td><input type="file" value="Choose file" name="myfile"></td>
+                <td><input type="file" value="Choose file" name="myfile" id="myfile"></td>
+                <td><p id="fileData"></p></td>
             </tr>
             <tr>
                 <td>
@@ -87,9 +95,6 @@
                         echo $registrationError;
                     ?>
                 </td>
-            </tr>
-            <tr>
-                <button class="btn">Button</button>
             </tr>
         </table>
     </form>
